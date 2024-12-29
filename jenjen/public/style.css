@@ -1,0 +1,123 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    font-family: 'Arial', sans-serif;
+    gap: 2rem;
+    padding: 20px;
+}
+
+.img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.5s ease;
+    object-fit: cover;
+    max-height: 70vh;
+}
+
+#changeButton {
+    padding: 20px;
+    border: none;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+#changeButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+#changeButton:active {
+    transform: translateY(1px);
+}
+
+.heart-icon {
+    font-size: 24px;
+    color: #ff4b6e;
+    transition: all 0.3s ease;
+}
+
+
+#changeButton:hover .heart-icon {
+    transform: scale(1.2);
+    color: #ff1f4c;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+#changeButton:active .heart-icon {
+    animation: pulse 0.3s ease;
+}
+
+#changeButton::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: rotate(45deg);
+    transition: all 0.3s ease;
+}
+
+#changeButton:hover::after {
+    transform: rotate(45deg) translateX(50%);
+}
+
+@media (max-width: 768px) {
+    .img {
+        max-width: 95%;
+        max-height: 60vh;
+    }
+    
+    #changeButton {
+        padding: 15px;
+    }
+    
+    .heart-icon {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+    
+    .img {
+        max-width: 100%;
+        max-height: 50vh;
+    }
+}
+
+
